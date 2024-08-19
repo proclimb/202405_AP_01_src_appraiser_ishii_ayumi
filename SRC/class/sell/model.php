@@ -99,7 +99,6 @@ function fnSqlSellEdit($sellNo)
 function fnSqlSellUpdate($param)
 {
     $sql = "UPDATE TBLSELL";
-    $sql .= "WHERE SELLNO = " . $param["sellNo"];
     $sql .= " SET SEARCHDT = '" . $param["searchDT"] . "'";
     $sql .= ",ARTICLE = '" . $param["article"] . "'";
     $sql .= ",ADDRESS = '" . $param["address"] . "'";
@@ -112,6 +111,7 @@ function fnSqlSellUpdate($param)
     $sql .= ",PRICE = '" . $param["price"] . "'";
     $sql .= ",NOTE = '" . $param["note"] . "'";
     $sql .= ",UPDT = CURRENT_TIMESTAMP";
+    $sql .= " WHERE SELLNO = " . $param["sellNo"];
 
     return $sql;
 }
